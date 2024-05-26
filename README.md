@@ -10,6 +10,8 @@
 - ``` git commit -a -m 'init code'```
 - insert Thefull.patch into the folder
 - ```git apply Thefull.patch```
+- ```git add *```
+- ``` git commit -a -m 'patched code'```
 - ignore them warnings, lol
 - ```DEBEMAIL='your name <yourname@example.com>'```
 - ```CC='ccache cc' CXX='cache c++' debuild -us -uc -i -I -j8```
