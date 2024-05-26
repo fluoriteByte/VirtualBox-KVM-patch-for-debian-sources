@@ -1,7 +1,9 @@
 #How to use this! (for now works with 7.0.18)
+- enable deb-src for the main repo, should be easy to do using the gui.
 - ```sudo apt install devscripts ccache``` (devscripts for building, ccache for speeding up next builds
-- ```sudo apt install default-jdk jaxws dh-python dh-sequence-dkms docbook-xml docbook-xsl g++-multilib genisoimage glslang-tools gsoap acpica-tools kbuild libasound2-dev libcap-dev libcurl4-gnutls-dev libdevmapper-dev libdrm-dev libegl1-mesa-dev libgl-dev libglu1-mesa-dev libgsoap-dev liblzf-dev liblzma-dev libidl-dev libogg-dev libpam0g-dev libpixman-1-dev libpng-dev libpulse-dev libqt5x11extras5-dev libqt5opengl5-dev qttools5-dev libsdl1.2-dev libsdl2-dev libssl-dev libtpms-dev libvncserver-dev libvorbis-dev libvpx-dev libx11-dev libxcomposite-dev libxcursor-dev libxdamage-dev libxext-dev libxi-dev libxinerama-dev libxml2-dev libxml2-utils libxmu-dev libxrandr-dev libxrender-dev libxslt1-dev libxt-dev makeself module-assistant nasm python3-dev texlive-fonts-extra texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended uuid-dev x11proto-gl-dev x11proto-xf86dri-dev xserver-xorg-dev xsltproc yasm zlib1g-dev```
-- ```mkdir vbox $$ cd vbox```
+- ```sudo apt build-dep virtualbox```
+- ```sudo apt-mark hold virtualbox virtualbox-qt``` (prevent apt from upgrading it)
+- ```mkdir vbox && cd vbox```
 - ```apt source virtualbox```
 - cd the only folder in there (should be virtualbox-version-dfsg with version being the version apt downloaded)
 - ```git init```
@@ -11,8 +13,8 @@
 - insert Thefull.patch into the folder
 - ```git apply Thefull.patch```
 - ```git add *```
-- ``` git commit -a -m 'patched code'```
+- ```git commit -a -m 'patched code'```
 - ignore them warnings, lol
-- ```DEBEMAIL='your name <yourname@example.com>'```
+- ```DEBEMAIL='your name <yourname@example.com>'``` (replace with your info or keep it that way, im not your mom)
 - ```CC='ccache cc' CXX='cache c++' debuild -us -uc -i -I -j8```
 - if it ever fails, do ```debuild -- clean``` before you investigate
